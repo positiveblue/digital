@@ -4,6 +4,8 @@ import (
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
+
+	"github.com/jomsdev/digital/common"
 )
 
 // Key generation with proof of work
@@ -21,10 +23,10 @@ func GenerateNewKeypair() *Keypair {
 
 	}
 
-	//xy := bigJoin(28, curve.PublicKey.X, curve.PublicKey.Y)
+	// xy := bigJoin(28, curve.PublicKey.X, curve.PublicKey.Y)
 
-	public := BigIntToBase64(x)
-	private := BigIntToBase64(curve.D)
+	public := common, BigIntToBase64(x)
+	private := common.BigIntToBase64(curve.D)
 
 	kp := Keypair{Public: public, Private: private}
 
