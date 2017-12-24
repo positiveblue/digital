@@ -16,19 +16,16 @@ type Keypair struct {
 
 // GenerateNewKeypair retunrs a key pair for the P256 Curve (which implments the P-256, see FIPS 186-3, section D.2.3)
 // Cryptographic operations for P256 are implemented using constant-time algorithms.
-func GenerateNewKeypair() *Keypair {
+func GenerateNewKeypair() (kp *Keypair, err error) {
 
 	curve, err := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
 	if err != nil {
-
+		return nil, err
 	}
 
-	// xy := bigJoin(28, curve.PublicKey.X, curve.PublicKey.Y)
+	public, private := common.EncodeCurve(curve)
 
-	public := common, BigIntToBase64(x)
-	private := common.BigIntToBase64(curve.D)
+	kp = &Keypair{Public: public, Private: private}
 
-	kp := Keypair{Public: public, Private: private}
-
-	return &kp
+	return kp, nil
 }
