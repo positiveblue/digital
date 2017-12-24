@@ -21,14 +21,14 @@ func Base64ToBigInt(s string) (*big.Int, error) {
 	return i, nil
 }
 
-func EncodeCurve(curve *ecdsa.PrivateKey) (public, private string) {
+func EncodeCurve(curve *ecdsa.PrivateKey) (pk, sk []byte) {
 
 	xBytes := curve.PublicKey.X.Bytes()
 	yBytes := curve.PublicKey.Y.Bytes()
 	publicKeyBytes := append(xBytes, yBytes...)
 
-	public = base64.StdEncoding.EncodeToString(publicKeyBytes)
-	private = BigIntToBase64(curve.D)
+	pk = publicKeyBytes
+	sk = curve.D.Bytes()
 
-	return public, private
+	return pk, sk
 }
