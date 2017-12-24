@@ -23,9 +23,9 @@ func GenerateNewKeypair() (kp *Keypair, err error) {
 		return nil, err
 	}
 
-	public, private := common.EncodeCurve(curve)
+	pk, sk := common.EncodeCurve(curve)
 
-	kp = &Keypair{Public: public, Private: private}
+	kp = &Keypair{Public: pk, Private: sk}
 
 	return kp, nil
 }
