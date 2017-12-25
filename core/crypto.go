@@ -1,4 +1,4 @@
-package crypto
+package core
 
 import (
 	"crypto/ecdsa"
@@ -54,22 +54,16 @@ func (kp *Keypair) init(curve *ecdsa.PrivateKey) {
 }
 
 func (kp *Keypair) curve() (curve *ecdsa.PrivateKey) {
-	x := new(big.Int)
-	y := new(big.Int)
-	D := new(big.Int)
-
-	x.SetBytes(kp.Public[:32])
-	y.SetBytes(kp.Public[32:])
-	D.SetBytes(kp.Private)
+	x := new(big.Int).SetBytes(kp.Public[:32])
+	y := new(big.Int).SetBytes(kp.Public[32:])
+	D := new(big.Int).SetBytes(kp.Private)
 
 	return &ecdsa.PrivateKey{ecdsa.PublicKey{elliptic.P256(), x, y}, D}
 }
 
 func splitPoint(bytes []byte) (x, y *big.Int) {
-	x = new(big.Int)
-	y = new(big.Int)
-	x.SetBytes(bytes[:32])
-	y.SetBytes(bytes[32:])
+	x = new(big.Int).SetBytes(bytes[:32])
+	y = new(big.Int).SetBytes(bytes[32:])
 
 	return x, y
 }
