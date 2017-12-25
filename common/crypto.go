@@ -14,7 +14,7 @@ func Sha256(data []byte) []byte {
 	return hash.Sum(nil)
 }
 
-// pkcs7Pad appends padding following the PKCS7
+// Pkcs7Pad appends padding following the PKCS7
 // https://en.wikipedia.org/wiki/Padding_%28cryptography%29#PKCS7
 func Pkcs7Pad(data []byte, blocklen int) ([]byte, error) {
 	if blocklen <= 0 {
@@ -29,7 +29,7 @@ func Pkcs7Pad(data []byte, blocklen int) ([]byte, error) {
 	return append(data, pad...), nil
 }
 
-// pkcs7Unpad returns slice of the original data without padding
+// Pkcs7Unpad returns slice of the original data without padding
 // https://en.wikipedia.org/wiki/Padding_%28cryptography%29#PKCS7
 func Pkcs7Unpad(data []byte, blocklen int) ([]byte, error) {
 	if blocklen <= 0 {
