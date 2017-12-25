@@ -4,7 +4,6 @@ import (
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
-
 	"math/big"
 )
 
@@ -28,6 +27,7 @@ func GenerateNewKeypair() (*Keypair, error) {
 	return &kp, nil
 }
 
+//TODO: Document function
 func (kp *Keypair) Sign(hash []byte) ([]byte, error) {
 	curve := kp.curve()
 	R, S, err := ecdsa.Sign(rand.Reader, curve, hash)
@@ -40,6 +40,7 @@ func (kp *Keypair) Sign(hash []byte) ([]byte, error) {
 	return signature, nil
 }
 
+//TODO: Document function
 func Verify(pk, sig, hash []byte) bool {
 	x, y := splitPoint(pk)
 	r, s := splitPoint(sig)
@@ -53,7 +54,10 @@ func (kp *Keypair) init(curve *ecdsa.PrivateKey) {
 }
 
 func (kp *Keypair) curve() (curve *ecdsa.PrivateKey) {
-	var x, y, D *big.Int
+	x := new(big.Int)
+	y := new(big.Int)
+	D := new(big.Int)
+
 	x.SetBytes(kp.Public[:32])
 	y.SetBytes(kp.Public[32:])
 	D.SetBytes(kp.Private)
@@ -62,6 +66,8 @@ func (kp *Keypair) curve() (curve *ecdsa.PrivateKey) {
 }
 
 func splitPoint(bytes []byte) (x, y *big.Int) {
+	x = new(big.Int)
+	y = new(big.Int)
 	x.SetBytes(bytes[:32])
 	y.SetBytes(bytes[32:])
 
