@@ -19,7 +19,6 @@ func TestGenerateNewKeypair(t *testing.T) {
 }
 
 func TestSignAndVerify(t *testing.T) {
-
 	// True Signatures
 	for testCases := 10; testCases > 0; testCases-- {
 		kp, err := GenerateNewKeypair()
@@ -35,7 +34,9 @@ func TestSignAndVerify(t *testing.T) {
 			t.Errorf("crypto: error verifying a valid signature")
 		}
 	}
+}
 
+func TestSignAndVerifyFalseSignatures(t *testing.T) {
 	// Fake Signatures
 	for testCases := 10; testCases > 0; testCases-- {
 		kp, _ := GenerateNewKeypair()
