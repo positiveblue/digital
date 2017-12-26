@@ -14,4 +14,7 @@ const (
 	// KeySize constant with the size for the crypto keys
 	// In our case Elliptic curve P256 with 32 bytes
 	KeySize = 32
+
+	// ProofOfWorkDepth determines the minumun numbers of 0's at the start of a hash in order to be accepted
+	ProofOfWorkDepth = 24
 )
