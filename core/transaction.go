@@ -18,6 +18,7 @@ type TransactionType uint32
 
 const (
 	Payment TransactionType = 0
+	CoinCreation
 )
 
 type TransactionHeader struct {
