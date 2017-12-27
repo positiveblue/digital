@@ -4,6 +4,7 @@ import (
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
+	"encoding/base64"
 	"math/big"
 )
 
@@ -25,6 +26,17 @@ func GenerateNewKeypair() (*Keypair, error) {
 	kp.init(curve)
 
 	return &kp, nil
+}
+
+func (kp *Keypair) FromBase64(public, private string) {
+	kp.Public, _ = base64.StdEncoding.DecodeString(public)
+	kp.Private, _ = base64.StdEncoding.DecodeString(private)
+}
+
+func (kp *Keypair) ToBase64() (public, private string) {
+	public = base64.StdEncoding.EncodeToString(kp.Public)
+	private = base64.StdEncoding.EncodeToString(kp.Private)
+	return public, private
 }
 
 //TODO: Document function
