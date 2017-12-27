@@ -24,14 +24,10 @@ type BlockHeader struct {
 
 func GenerateBlock(from, prevHash []byte, transactions []Transaction) Block {
 	block := newBlock(from, prevHash, transactions)
-	block.Header.MarkleRoot = GenerateMerkelRoot(block)
+	block.Header.MarkleRoot, _ = GenerateMerkelRoot(block.Transactions)
 	generateProofOfWork(&block)
 	block.Header.Timestamp = uint32(time.Now().Unix())
 	return block
-}
-
-func GenerateMerkelRoot(block Block) []byte {
-	return make([]byte, 2)
 }
 
 func (block *Block) Hash() ([]byte, error) {
