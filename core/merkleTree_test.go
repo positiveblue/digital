@@ -4,10 +4,10 @@ import (
 	"testing"
 )
 
-func TestGenerateMerkelRoot(t *testing.T) {
+func TestGenerateMerkleRoot(t *testing.T) {
 	transactions := MockTransactions()
 
-	hash, err := GenerateMerkelRoot(transactions)
+	hash, err := GenerateMerkleRoot(transactions)
 	if err != nil {
 
 	}

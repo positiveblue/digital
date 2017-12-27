@@ -24,7 +24,7 @@ type BlockHeader struct {
 
 func GenerateBlock(from, prevHash []byte, transactions []Transaction) Block {
 	block := newBlock(from, prevHash, transactions)
-	block.Header.MarkleRoot, _ = GenerateMerkelRoot(block.Transactions)
+	block.Header.MarkleRoot, _ = GenerateMerkleRoot(block.Transactions)
 	generateProofOfWork(&block)
 	block.Header.Timestamp = uint32(time.Now().Unix())
 	return block
