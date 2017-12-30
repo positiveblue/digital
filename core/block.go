@@ -22,7 +22,7 @@ type BlockHeader struct {
 	Nonce      uint32
 }
 
-func GenerateBlock(from, prevHash []byte, transactions []Transaction) Block {
+func NewBlock(from, prevHash []byte, transactions []Transaction) Block {
 	block := newBlock(from, prevHash, transactions)
 	block.Header.MerkleRoot, _ = GenerateMerkleRoot(block.Transactions)
 	generateProofOfWork(&block)
