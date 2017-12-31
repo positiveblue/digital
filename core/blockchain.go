@@ -16,7 +16,16 @@ func AddTransaction(transaction Transaction) {
 }
 
 // TODO: Document function
-
 func AddBlock(block Block) {
 
+}
+
+// TODO: Document function
+func CheckBalance(publicKey []byte) {
+
+}
+
+// TODO: Document function
+func GetIdentityTransactions(publicKey []byte) []Transaction {
+	return nil
 }
