@@ -1,5 +1,6 @@
 # Digital - A basic blockchain
 
+**caution**: *Digital* is in an early stage and it is still under development
 
 ## Introduction
 **Blockchain** is one of the hot topics of the moment. It seems that it has the potential to change the way that the world approaches distributed ledgers but, what is a blockchain?
@@ -24,20 +25,21 @@ The main objectives of *Digital* are:
 ## Bitcoin in a nutshell
 Bitcoin is decentralized network implementing a peer-to-peer electronic cash system. Bitcoin uses blockchain to keep track of all the account balances of the users in the network. 
 
-**Identities**: Bitcoin is based on public cryptography. Each user has his/her own public and private key that are used to identify them and validate transactions.
+**Identities**: Bitcoin is based on public key cryptography. Each user has his/her own public and private key that are used to identify them and validate transactions.
 
 **Transactions**: Transactions are the way of transfering value from one user to other. A transaction have the informatio of who is giving the value and to whom. In order to be sure that a transaction is valid we need to check two things:
-- Who is transfering the value actually has that value
-- Who is transfering the value is who created the transcation
+- *Who is transfering the value actually has that value*: That means that he recived that value from a previous transaction and he did not spent it yet.
+- *Who is transfering the value is who created the transcation*: That means that he signed the transaccion. It can be easly verified with his public key.
 
-**Blocks**:
+**Blocks**: Blocks are basically a bunch of valid transactions. The nodes of the network receive which are the pending transactions and validate them. Then they start working in the proof-of-work. To make it hard to accept blocks a valid block has to have a *hash* with a concrete properties. Those properties are usually "start with *k* zeros". But the hash of something remains always equal... so what we do is add some extra data to the block (the nonce) and change it until we get a block which a hash value meeting the property that we were looking for. 
 
-
+**Incentives**: A transaction is accepted when it is finally in the blockchain, so it is an a valid block. As we saw validating blocks is quite expensive, due to the proof-of-work procedure. So, why should one join the bitcoin network and validate blocks? The answer is that the user who finds the next valid block for the blockchain creates a new transaccion from which he get some bitcoins.
 
 ## Digital Arquitecture
 
 
-## The future of blockchain
+### Examples
+
 
 ## License
 
