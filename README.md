@@ -2,8 +2,15 @@
 
 
 ## Introduction
-Blockchain is one of the hot topics of the moment. The first public Blockchain was [Bitcoin](https://bitcoin.org/bitcoin.pdf), introduced in 2009 by Satoshi Nakamoto.
-After some hype on the cryptocurrencies some people saw the value of the technology that enables Bitcoin,  *Blockchain* the public ledger shared by all the entities in wich one can trust.
+Blockchain is one of the hot topics of the moment. It seems that it has the potential to change the way that the world approaches distributed ledgers but, what is a blockchain?
+
+A Blockchain is a distributed database system that acts as an “open ledger” to store and manage transactions. The key idea behind is that it is formed by blocks. These blocks contain details about the trasnactions processed at some point and a link to the block which was processed just before. The way of linking one block with the previous one (creating a "block"-"chain") is adding the *hash* of the previous block to the new block and its own *hash*. This makes it impossible for anyone to alter information about the records retrospectively which makes blockchain immutable — information remains in the same state for as long as the network exists.
+
+This technology was first introduced in the [Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf), in 2009 by Satoshi Nakamoto.
+
+After some hype on the cryptocurrencies some people saw the value on the technology that enables Bitcoin,  *Blockchain* a public ledger shared by all the entities in wich one can trust.
+
+**Digital**
 
 ## Objectives
 
