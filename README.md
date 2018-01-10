@@ -27,8 +27,8 @@ Bitcoin is decentralized network implementing a peer-to-peer electronic cash sys
 **Identities**: Bitcoin is based on public cryptography. Each user has his/her own public and private key that are used to identify them and validate transactions.
 
 **Transactions**: Transactions are the way of transfering value from one user to other. A transaction have the informatio of who is giving the value and to whom. In order to be sure that a transaction is valid we need to check two things:
-    - Who is transfering the value actually has that value
-    - Who is transfering the value is who created the transcation
+- Who is transfering the value actually has that value
+- Who is transfering the value is who created the transcation
 
 **Blocks**:
 
