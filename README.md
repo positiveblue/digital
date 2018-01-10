@@ -24,28 +24,17 @@ The main objectives of *Digital* are:
 ## Bitcoin in a nutshell
 Bitcoin is decentralized network implementing a peer-to-peer electronic cash system. Bitcoin uses blockchain to keep track of all the account balances of the users in the network. 
 
-*Identities*: Bitcoin is based on public cryptography and each user has his/her own public and private key.
+**Identities**: Bitcoin is based on public cryptography. Each user has his/her own public and private key that are used to identify them and validate transactions.
 
-*Transactions*:
+**Transactions**: Transactions are the way of transfering value from one user to other. A transaction have the informatio of who is giving the value and to whom. In order to be sure that a transaction is valid we need to check two things:
+    - Who is transfering the value actually has that value
+    - Who is transfering the value is who created the transcation
 
-*Blocks*:
+**Blocks**:
 
 
 
 ## Digital Arquitecture
-
-### Public Cryptography: Identities
-
-### Transactions
-
-### Blocks
-
-#### MerkleeTrees
-
-### Blockchain
-
-
-
 
 
 ## The future of blockchain
