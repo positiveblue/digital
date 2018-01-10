@@ -16,10 +16,10 @@ After some hype on the cryptocurrencies some people saw the value on the technol
 Digital is an implementation of a simple blockchain in Golang based on bitcoin. This repository contains the "core" library of the project. That means that you will not find here the necessary code for setting up a node in a network. This constrain has been intentionally because the idea is to help others to learn the key concepts behind blockchain and not get a production ready implementation.
 
 The main objectives of *Digital* are:
-- Become the entry point for understanding the key concepts of the Blockchain technology
-- Give a simple implementation with the main functionalites of a Blockchain
-- Easy to configure and run in your computer
-- Self documented and easy  to hack/extend
+- Become the entry point for **understanding the key concepts** of the Blockchain technology
+- Give a **simple implementation** with the main functionalites of a Blockchain
+- **Easy to configure and run** in your computer
+- Self documented and **easy to hack/extend**
 
 ## Bitcoin in a nutshell
 Bitcoin is decentralized network implementing a peer-to-peer electronic cash system. Bitcoin uses blockchain to keep track of all the account balances of the users in the network. 
