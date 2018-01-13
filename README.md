@@ -37,6 +37,51 @@ Bitcoin is decentralized network implementing a peer-to-peer electronic cash sys
 
 ## Digital Arquitecture
 
+The arquitecture of this project is heavly based on the one specified in the [Bitcoin whitepaper](https://bitcoin.org/bitcoin.pdf). Because of that this project can be used to grasp the concepts behind Bitcoin easier.
+
+### Identities
+As we have seen identities are pairs of private and public keys. In Digitial the logic for the managment of identities is in the [crypto.go](https://github.com/jomsdev/digital/blob/master/core/crypto.go) file. Digital uses eliptic curves for the keys, the P256 for being more exact. In Golang cryptographic operations for P256 are implemented using constant-time algorithms.
+
+An identity is represented as a Keypair
+
+'''go
+type Keypair struct {
+	Public  []byte
+	Private []byte
+}
+'''
+
+To transform Keys into something "humar readable" digital uses Base64 for byte encoding.
+
+### Transactions
+
+'''go
+type Transaction struct {
+	Header    TransactionHeader
+	Signature []byte
+	Payload   []byte
+}
+'''
+
+'''go
+type TransactionType uint32
+
+const (
+	Payment TransactionType = 0
+	CoinCreation
+)
+'''
+
+'''go
+type TransactionHeader struct {
+	From        []byte
+	To          []byte
+	Type        TransactionType
+	Timestamp   uint32
+	PayloadHash []byte
+}
+'''
+
 
 ### Examples
 
