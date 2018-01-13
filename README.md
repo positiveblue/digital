@@ -103,8 +103,19 @@ type BlockHeader struct {
 ```
 ### Blockchain
 
-### Example
+```go
+type Blockchain struct {
+	Identities []string
+	Blocks     []Block
+}
+```
 
+## Example
+
+
+```go
+// TODO: Example of Blockchain + three identities + two transaction + one block
+```
 
 ## License
 
