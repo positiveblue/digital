@@ -44,35 +44,35 @@ As we have seen identities are pairs of private and public keys. In Digitial the
 
 An identity is represented as a Keypair
 
-'''go
+```go
 type Keypair struct {
 	Public  []byte
 	Private []byte
 }
-'''
+```
 
 To transform Keys into something "humar readable" digital uses Base64 for byte encoding.
 
 ### Transactions
 
-'''go
+```go
 type Transaction struct {
 	Header    TransactionHeader
 	Signature []byte
 	Payload   []byte
 }
-'''
+```
 
-'''go
+```go
 type TransactionType uint32
 
 const (
 	Payment TransactionType = 0
 	CoinCreation
 )
-'''
+```
 
-'''go
+```go
 type TransactionHeader struct {
 	From        []byte
 	To          []byte
@@ -80,10 +80,30 @@ type TransactionHeader struct {
 	Timestamp   uint32
 	PayloadHash []byte
 }
-'''
+```
 
+### Blocks
 
-### Examples
+```go
+type Block struct {
+	Header       BlockHeader
+	Signature    []byte
+	Transactions []Transaction
+}
+```
+
+```go
+type BlockHeader struct {
+	From       []byte
+	PrevHash   []byte
+	MerkleRoot []byte
+	Timestamp  uint32
+	Nonce      uint32
+}
+```
+### Blockchain
+
+### Example
 
 
 ## License
