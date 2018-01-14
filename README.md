@@ -54,6 +54,7 @@ type Keypair struct {
 To transform Keys into something "humar readable" digital uses Base64 for byte encoding.
 
 ### Transactions
+Transactions have two important parts: the header an the payload:
 
 ```go
 type Transaction struct {
@@ -63,14 +64,7 @@ type Transaction struct {
 }
 ```
 
-```go
-type TransactionType uint32
-
-const (
-	Payment TransactionType = 0
-	CoinCreation
-)
-```
+The header contains all the important information about the transaction. It is separated from the payload because in our network we do not want to send each time all the information about a tranction but only the information which is important. To make it secure, we sign each transaction with the private key of the sender (*From* in the header)
 
 ```go
 type TransactionHeader struct {
@@ -81,6 +75,27 @@ type TransactionHeader struct {
 	PayloadHash []byte
 }
 ```
+
+The transaction header:
+- Contains two public keys: one for the sender an another for the receiver.
+- Contains a timestamp of when it is created
+- The hash of its payload, using sha256
+- The transaction Type
+
+The transaction type is necesary because we haver more than one kind. It is extensible. In the future we could add to the network as many types of transactions as needed.
+
+```go
+type TransactionType uint32
+
+const (
+	Payment TransactionType = 0
+	CoinCreation
+)
+```
+
+By now there are two kind of transactions:
+- Payment: The transaction is between two users and states how much value is transfered
+- Coin Creation: The transaction is the creation of a new coin, in our case after creating a valid block.
 
 ### Blocks
 
